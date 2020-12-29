@@ -17,7 +17,8 @@ class SQLFactory():
         formInfo.insert(0, new_id)
 
         df = pd.DataFrame([formInfo], columns = ["id", "name", "email", "phone", "address1", "address2", "city", "state", "zip"])
-        df["last_updated"] = datetime.datetime.now()
+        tz = pytz.timezone('America/Chicago')
+        df["last_updated"] = datetime.datetime.now(tz)
 
         conn = self.db.connect()
         df.columns = [x.lower() for x in df.columns] #lowercase columns
