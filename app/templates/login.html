@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trackman Upload</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/login.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="../static/js/login.js"></script>
+</head>
+
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <img src="static\images\temp.png" style="padding:10px;" id="icon" />
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+                    <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+                </div>
+                <div class="form-group fadeIn third" style="zoom:0.8">
+                    <input type="checkbox" class="form-check-input" id="showPassword" name="showPassword">
+                    <label class="form-check-label" for="showPassword">Show Password</label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="fadeIn fourth" value="Log In" id="submit">
+                </div>
+            </form>
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                <p>Credentials should have been provided to you.</p>
+            </div>
+        </div>
+    </div>
+</body>
