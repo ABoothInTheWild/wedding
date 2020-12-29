@@ -7,7 +7,6 @@ from credentials import *
 import pandas as pd
 import datetime
 import numpy as np
-from io import TextIOWrapper
 
 # Create an instance of Flask
 app = Flask(__name__)
@@ -31,6 +30,10 @@ def home():
 def login():
     return render_template("login.html")
 
+@app.route("/admin")
+def admin():
+    return render_template("admin.html")
+
 @app.route('/loginAttempt/', methods=["POST"])
 def loginAttempt():
     content = request.json["data"]
@@ -46,14 +49,35 @@ def loginAttempt():
 
     return(jsonify({"success": success}))
 
+@app.route('/adminLoginAttempt/', methods=["POST"])
+def adminLoginAttempt():
+    content = request.json["data"]
+
+    #parse params
+    login = content["login"]
+    password = content["password"]
+
+    #check login attempt
+    success = False
+    if ((login == ADMIN_USERNAME) & (password == ADMIN_PASSWORD)):
+        success = True
+
+    return(jsonify({"success": success}))
+
 @app.route('/saveFormData/', methods=["POST"])
 def saveFormData():
     content = request.json["data"]
     formInfo = content["formInfo"]
 
-    # success = sf.saveDataToDatabase(formInfo)
+    success = sf.saveDataToDatabase(formInfo)
     success = {"ok": True}
     return(jsonify({"success": success["ok"]}))
+
+@app.route('/getAllData/', methods=["POST"])
+def getAllData():
+    content = request.json["data"] #unused
+    data = sf.getAllData()
+    return(jsonify(json.loads(data.to_json(orient="records"))))
 
 #############################################################
 @app.after_request
