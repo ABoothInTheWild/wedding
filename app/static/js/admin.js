@@ -26,7 +26,7 @@ function getTable() {
         data: JSON.stringify({ "data": payload }),
         success: function(data) {
             //Describe
-            let data_rows = data.map(entry => [entry["id"], entry["name"], entry["email"], entry["phone"], entry["address1"], entry["address2"], entry["city"], entry["state"], entry["zip"], entry["last_updated"]]);
+            let data_rows = data.map(entry => [entry["id"], entry["name"], entry["email"], entry["phone"], entry["address1"], entry["address2"], entry["city"], entry["state"], entry["zip"], entry["country"], entry["last_updated"]]);
             //reinit datatable
             dt = $('#info').DataTable({
                 data: data_rows,

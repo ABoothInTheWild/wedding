@@ -17,7 +17,7 @@ class SQLFactory():
         new_id = self.getNewID()
         formInfo.insert(0, new_id)
 
-        df = pd.DataFrame([formInfo], columns = ["id", "name", "email", "phone", "address1", "address2", "city", "state", "zip"])
+        df = pd.DataFrame([formInfo], columns = ["id", "name", "email", "phone", "address1", "address2", "city", "state", "zip", "country"])
         tz = pytz.timezone('America/Chicago')
         df["last_updated"] = datetime.datetime.now(tz)
 
