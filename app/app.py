@@ -39,12 +39,11 @@ def loginAttempt():
     content = request.json["data"]
 
     #parse params
-    login = content["login"]
     password = content["password"]
 
     #check login attempt
     success = False
-    if ((login == USERNAME) & (password == PASSWORD)):
+    if (password == PASSWORD):
         success = True
 
     return(jsonify({"success": success}))

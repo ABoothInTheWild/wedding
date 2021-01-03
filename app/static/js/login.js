@@ -21,7 +21,6 @@ $(document).ready(function() {
 
 function checkLogin() {
     var payload = {
-        "login": $('#login').val(),
         "password": $('#password').val()
     };
 
@@ -41,9 +40,7 @@ function checkLogin() {
                 });
                 window.location.replace("/");
             } else {
-                $('#login').val("");
                 $('#password').val("");
-                $('#login').text("");
                 $('#password').text("");
                 alert("Incorrect Credentials");
             }
