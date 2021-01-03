@@ -59,7 +59,7 @@ class SQLFactory():
                     from
                         {TABLE_NAME}
                     where
-                        name is not null
+                        name <> ''
                     order by id desc
                 """
 
